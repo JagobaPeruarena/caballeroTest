@@ -1,13 +1,12 @@
 package modelo.dao;
 
 import java.sql.Statement;
-import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import conector.Conector;
-import modelo.bean.Arma;
 import modelo.bean.Caballero;
 
 public class ModeloCaballero {
@@ -17,6 +16,10 @@ public class ModeloCaballero {
 	public ArrayList<Caballero> getCaballeros(){
 		ArrayList<Caballero> caballeros = new ArrayList<Caballero>();
 		String query = "SELECT * from CABALLEROS";
+		ModeloArma mdArma = new ModeloArma();
+		mdArma.setConector(conector);
+		ModeloEscudo mdEscudo = new ModeloEscudo();
+		mdEscudo.setConector(conector);
 		Statement st;
 		try {
 			st = conector.getCon().createStatement();
@@ -27,11 +30,11 @@ public class ModeloCaballero {
 				caballero.setId(rs.getInt("id"));
 				caballero.setNombre(rs.getString("nombre"));
 				caballero.setFuerza(rs.getInt("fuerza"));
-				caballero.setExperiencia(rs.getInt("experiencia"));
-				Arma arma =new Arma();
-				arma.setId(rs.getInt("arma_id"));
-				caballero.setArma(arma);
-				arma.setFoto(rs.getString("foto"));
+				caballero.setExperiencia(rs.getInt("experiencia"));				
+				caballero.setArma(mdArma.select(rs.getInt("arma_id")));
+				caballero.setEscudo(mdEscudo.select(rs.getInt("escudo_id")));
+				
+				caballero.setFoto(rs.getString("foto"));
 				
 				caballeros.add(caballero);
 				

@@ -7,6 +7,8 @@ public class Caballero {
 	private int experiencia;
 	private String foto;
 	private Arma arma;
+	private Escudo escudo;
+	
 	public int getId() {
 		return id;
 	}
@@ -43,7 +45,14 @@ public class Caballero {
 	public void setArma(Arma arma) {
 		this.arma = arma;
 	}
-	public Caballero(int id, String nombre, int fuerza, int experiencia, String foto, Arma arma) {
+	
+	public Escudo getEscudo() {
+		return escudo;
+	}
+	public void setEscudo(Escudo escudo) {
+		this.escudo = escudo;
+	}
+	public Caballero(int id, String nombre, int fuerza, int experiencia, String foto, Arma arma, Escudo escudo) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -51,6 +60,7 @@ public class Caballero {
 		this.experiencia = experiencia;
 		this.foto = foto;
 		this.arma = arma;
+		this.escudo = escudo;
 	}
 	
 	public Caballero() {}
