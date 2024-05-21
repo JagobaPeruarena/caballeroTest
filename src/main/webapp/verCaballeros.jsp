@@ -16,14 +16,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+<main role="main" class="container">
 				<div
 					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-					<h1 class="h2">Listado de alumnos</h1>
+					<h1 class="h2">Listado de Caballeros</h1>
 				</div>
+	<a type="button" class="btn btn-success btn-md-3" href="agregarCaballero" >Crear</a>
 	<div class="table-responsive">
 		<table class="table table-striped table-sm">
-			<thead>
+			<thead class="thead-dark">
 				<tr>
 					<th>#</th>
 					<th>Nombre</th>

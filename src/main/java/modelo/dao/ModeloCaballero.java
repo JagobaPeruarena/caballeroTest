@@ -1,7 +1,7 @@
 package modelo.dao;
 
 import java.sql.Statement;
-
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -55,6 +55,36 @@ public class ModeloCaballero {
 	
 	public void setConector(Conector conector) {
 		this.conector = conector;
+	}
+	public boolean insert(Caballero caballero) {
+		String query = " INSERT into CABALLEROS (nombre,fuerza,experiencia,foto,arma_id,escudo_id) VALUES (?,?,?,?,?,?) ";
+		
+		try {
+			PreparedStatement ps = conector.getCon().prepareStatement(query);
+			ps.setString(1, caballero.getNombre());
+			ps.setInt(2, caballero.getFuerza());
+			ps.setInt(3, caballero.getExperiencia());
+			ps.setString(4, caballero.getFoto());
+			ps.setInt(5, caballero.getArma().getId());
+			ps.setInt(6, caballero.getEscudo().getId());
+			
+			int rs = ps.executeUpdate();
+			
+			return rs >0;
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+		return false;
+		
 	}
 
 }
