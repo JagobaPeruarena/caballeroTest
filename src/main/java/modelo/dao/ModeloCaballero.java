@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import conector.Conector;
+import modelo.bean.Arma;
 import modelo.bean.Caballero;
 
 public class ModeloCaballero {
@@ -85,6 +86,43 @@ public class ModeloCaballero {
 		
 		return false;
 		
+	}
+	public Caballero select(int id) {
+		String query = "SELECT * from CABALLEROS where id = ?";
+		
+		
+		
+		try {
+			PreparedStatement ps = conector.getCon().prepareStatement(query);
+			ModeloArma mdArma = new ModeloArma();
+			mdArma.setConector(conector);
+			ModeloEscudo mdEscudo = new ModeloEscudo();
+			mdEscudo.setConector(conector);
+			ps.setInt(1, id);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.next()) {
+				Caballero caballero = new Caballero();
+				caballero.setId(rs.getInt("id"));
+				caballero.setNombre(rs.getString("nombre"));
+				caballero.setFuerza(rs.getInt("fuerza"));
+				caballero.setExperiencia(rs.getInt("experiencia"));				
+				caballero.setArma(mdArma.select(rs.getInt("arma_id")));
+				caballero.setEscudo(mdEscudo.select(rs.getInt("escudo_id")));
+				
+				caballero.setFoto(rs.getString("foto"));
+				
+				return caballero;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+		
+	
 	}
 
 }

@@ -1,8 +1,6 @@
 package servletCaballero;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,23 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import conector.Conector;
-import modelo.bean.Arma;
-import modelo.bean.Escudo;
-import modelo.dao.ModeloArma;
+import modelo.bean.Caballero;
 import modelo.dao.ModeloCaballero;
-import modelo.dao.ModeloEscudo;
 
 /**
- * Servlet implementation class agregarCaballero
+ * Servlet implementation class verCaballero
  */
-@WebServlet("/agregarCaballero")
-public class agregarCaballero extends HttpServlet {
+@WebServlet("/verCaballero")
+public class verCaballero extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public agregarCaballero() {
+    public verCaballero() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,27 +32,16 @@ public class agregarCaballero extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		ModeloArma mdArma = new ModeloArma();
-		ModeloEscudo mdEscudo = new ModeloEscudo();
+		ModeloCaballero mdCaballero = new ModeloCaballero();
+		mdCaballero.setConector(new Conector());		
 		
-		mdArma.setConector(new Conector());
-		mdEscudo.setConector(new Conector());
-		String msg="";
-		try {
-			 msg= request.getParameter("msg");
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+		int caballero_id = Integer.parseInt( request.getParameter("caballeroId"));
 		
-		ArrayList<Escudo> escudos = mdEscudo.getEscudos();
-		ArrayList<Arma> armas = mdArma.getArmas();
+		Caballero caballero = mdCaballero.select(caballero_id);
 		
-		request.setAttribute("msg", msg);
-		request.setAttribute("armas", armas);
-		request.setAttribute("escudos", escudos);
+		request.setAttribute("caballero", caballero);
 		
-		request.getRequestDispatcher("agregarCaballero.jsp").forward(request, response);
+		request.getRequestDispatcher("verCaballero.jsp").forward(request, response);
 		
 	}
 

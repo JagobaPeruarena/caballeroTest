@@ -16,45 +16,57 @@
 <title>Insert title here</title>
 </head>
 <body>
-<main role="main" class="container">
-				<div
-					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-					<h1 class="h2">Listado de Caballeros</h1>
-				</div>
-	<a type="button" class="btn btn-success btn-md-3" href="agregarCaballero" >Crear</a>
-	<div class="table-responsive">
-		<table class="table table-striped table-sm">
-			<thead class="thead-dark">
-				<tr>
-					<th>#</th>
-					<th>Nombre</th>
-					<th>Fuerza</th>
-					<th>Experiencia</th>
-					<th>Foto</th>
-					<th>Arma</th>
-					<th>Escudo</th>
-					
-
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${caballeros}" var="caballero">
-					<tr>
-					<td>${caballero.id}</td>
-					<td>${caballero.nombre}</td>
-					<td>${caballero.fuerza}</td>
-					<td>${caballero.experiencia}</td>
-					<td>${caballero.foto}</td>
-					<td>${caballero.arma.nombre}</td>
-					<td>${caballero.escudo.nombre}</td>
-					</tr>
-				</c:forEach>
-
-			</tbody>
-		</table>
+	<main role="main" class="container">
+		<div
+			class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+			<h1 class="h2">Listado de Caballeros</h1>
 		</div>
-		</main>
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<a type="button" class="btn btn-success btn-md-3"
+			href="agregarCaballero">Crear</a>
+		<div class="table-responsive">
+			<table class="table table-striped table-sm">
+				<thead class="thead-dark">
+					<tr>
+						<th>#</th>
+						<th>Nombre</th>
+						<th>Fuerza</th>
+						<th>Experiencia</th>
+						<th>Foto</th>
+						<th>Arma</th>
+						<th>Escudo</th>
+						<th>Acciones</th>
+
+
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${caballeros}" var="caballero">
+						<tr>
+							<td>${caballero.id}</td>
+							<td>${caballero.nombre}</td>
+							<td>${caballero.fuerza}</td>
+							<td>${caballero.experiencia}</td>
+							<td>${caballero.foto}</td>
+							<td>${caballero.arma.nombre}</td>
+							<td>${caballero.escudo.nombre}</td>
+							<td><a class="btn btn-primary btn-sm delete-btn"
+								href="editarCaballero?caballeroId=${caballero.id}"> <i
+									class="fas fa-edit"></i></a> <a
+								class="btn btn-danger btn-sm delete-btn"
+								href="eliminarCaballero?caballeroId=${caballero.id}"> <i
+									class="fas fa-trash-alt"></i></a> <a
+								class="btn btn-info btn-sm delete-btn"
+								href="verCaballero?caballeroId=${caballero.id}"> <i
+									class="fas fa-eye"></i></a></td>
+							</td>
+						</tr>
+					</c:forEach>
+
+				</tbody>
+			</table>
+		</div>
+	</main>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 	<script
