@@ -24,18 +24,18 @@
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<label for="addFuerza">Fuerza</label>
+					<label for="addFuerza">Fuerza:</label>
 					<div class="progress">
-						<div class="progress-bar" role="progressbar"
+						<div class="progress-bar bg-warning" role="progressbar"
 							style="width: ${caballero.fuerza}%"
 							aria-valuenow="${caballero.fuerza}" aria-valuemin="0"
 							aria-valuemax="100"></div>
 					</div>
 				</div>
 				<div class="form-group col-md-6">
-					<label for="addExperiencia">Experiencia</label>
+					<label for="addExperiencia">Experiencia:</label>
 					<div class="progress">
-						<div class="progress-bar" role="progressbar"
+						<div class="progress-bar progress-bar-striped bg-success" role="progressbar"
 							style="width: ${caballero.experiencia}%"
 							aria-valuenow="${caballero.experiencia}" aria-valuemin="0"
 							aria-valuemax="100"></div>
@@ -70,7 +70,7 @@
 					</div>
 				</div>
 			</div>
-
+			<a href="javascript:history.back()" class="btn btn-primary mt-3">Volver</a>
 		</form>
 	</main>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

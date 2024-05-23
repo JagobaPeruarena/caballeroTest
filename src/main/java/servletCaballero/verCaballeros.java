@@ -2,6 +2,7 @@ package servletCaballero;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,6 +37,28 @@ public class verCaballeros extends HttpServlet {
 		ModeloCaballero mdC = new ModeloCaballero();
 		mdC.setConector(new Conector());
 		ArrayList<Caballero> caballeros = mdC.getCaballeros();
+		String busqueda = request.getParameter("busqueda");
+		try {
+			
+		
+		if (!busqueda.isBlank()) {
+			ArrayList<Caballero> toRemove = new ArrayList<Caballero>();
+			for (Caballero caballero : caballeros) {
+				if (caballero.getNombre().toLowerCase().contains(busqueda.toLowerCase())) {
+					System.out.println(caballero.getNombre());
+				}else {
+					toRemove.add(caballero);
+				}
+					
+				
+			}
+			for (Caballero caballero : toRemove) {
+				caballeros.remove(caballero);
+			}
+		}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 		request.setAttribute("caballeros", caballeros);
 		
@@ -48,7 +71,7 @@ public class verCaballeros extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
 	}
 
 }

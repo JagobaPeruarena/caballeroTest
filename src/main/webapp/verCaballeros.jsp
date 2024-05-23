@@ -21,8 +21,22 @@
 			class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 			<h1 class="h2">Listado de Caballeros</h1>
 		</div>
-		<a type="button" class="btn btn-success btn-md-3"
-			href="agregarCaballero">Crear</a>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<<a type="button" class="btn btn-success btn-md-3"
+					href="agregarCaballero">Crear</a>
+			</div>
+			<form action="verCaballeros" method="get">
+				<div class="form-group col-md-6">
+
+					<input type="text" class="form-control" id="busqueda"
+						name="busqueda"> 
+					<button type="submit" class="btn btn-primary">Buscar</button>
+
+				</div>
+			</form>
+		</div>
+
 		<div class="table-responsive">
 			<table class="table table-striped table-sm">
 				<thead class="thead-dark">

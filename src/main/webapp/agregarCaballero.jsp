@@ -99,7 +99,10 @@
 					</select>
 				</div>
 			</div>
+			<div class="form-row">
 			<button type="submit" class="btn btn-primary">Crear</button>
+			<a href="javascript:history.back()" style="float:right" class="btn btn-primary mt-3">Volver</a>
+			</div>
 		</form>
 	</main>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
