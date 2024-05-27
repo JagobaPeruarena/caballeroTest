@@ -59,7 +59,7 @@ public class verCaballeros extends HttpServlet {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
 		request.setAttribute("caballeros", caballeros);
 		
 		request.getRequestDispatcher("verCaballeros.jsp").forward(request, response);

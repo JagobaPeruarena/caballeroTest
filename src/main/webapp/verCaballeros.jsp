@@ -30,6 +30,9 @@
 				<a type="button" class="btn btn-success btn-md-3" href="luchaPanel1">Lucha</a>
 			</div>
 			<div class="form-group col-md-3">
+				<a type="button" class="btn btn-success btn-md-3" href="ordenarCaballeros">Ordenar</a>
+			</div>
+			<div class="form-group col-md-3">
 				<form action="verCaballeros" method="get">
 					<div class="form-row">
 
