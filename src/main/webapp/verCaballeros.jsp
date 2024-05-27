@@ -22,19 +22,37 @@
 			<h1 class="h2">Listado de Caballeros</h1>
 		</div>
 		<div class="form-row">
-			<div class="form-group col-md-6">
-				<<a type="button" class="btn btn-success btn-md-3"
+			<div class="form-group col-md-3">
+				<a type="button" class="btn btn-success btn-md-3"
 					href="agregarCaballero">Crear</a>
 			</div>
-			<form action="verCaballeros" method="get">
-				<div class="form-group col-md-6">
+			<div class="form-group col-md-3">
+				<a type="button" class="btn btn-success btn-md-3" href="luchaPanel1">Lucha</a>
+			</div>
+			<div class="form-group col-md-3">
+				<form action="verCaballeros" method="get">
+					<div class="form-row">
 
-					<input type="text" class="form-control" id="busqueda"
-						name="busqueda"> 
-					<button type="submit" class="btn btn-primary">Buscar</button>
+						<input type="text" class="form-control" id="busqueda"
+							name="busqueda">
+						<button type="submit" class="btn btn-primary">Buscar</button>
 
-				</div>
-			</form>
+					</div>
+				</form>
+			</div>
+			<div class="form-group col-md-3">
+				<form action="eliminarCaballeros" method="get">
+					<div class="form-row">
+
+						<input type="text" class="form-control" id="eliminar"
+							name="eliminar">
+						<button type="submit" class="btn btn-danger">
+							<i class="fas fa-trash-alt"></i>
+						</button>
+
+					</div>
+				</form>
+			</div>
 		</div>
 
 		<div class="table-responsive">
